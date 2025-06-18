@@ -11,8 +11,10 @@ export default function Layout() {
   const [taskToEdit, setTaskToEdit] = useState(null);
   const [notification, setNotification] = useState(null);
   const queryClient = useQueryClient();
+  // Bron: ChatGPT
   const params = /\/projects\/([^/]+)/.exec(location.pathname);
   const activeProject = params ? params[1].toUpperCase() : null;
+  // Bron: Close
 
   const handleCloseForm = () => setTaskToEdit(null);
   const handleSubmitTask = async (task) => {
@@ -98,7 +100,6 @@ export default function Layout() {
       </aside>
 
       <main className="taskboard">
-
         {/* Passer les états et setters via context à Outlet */}
         <Outlet
           context={{
